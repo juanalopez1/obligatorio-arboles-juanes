@@ -1,6 +1,3 @@
-package ut3.ta2;
-
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -13,7 +10,7 @@ public class ManejadorArchivosGenerico {
 	/**
 	 * @param nombreCompletoArchivo
 	 * @param listaLineasArchivo
-	 *            lista con las lineas del archivo
+	 *                              lista con las lineas del archivo
 	 * @throws IOException
 	 */
 	public static void escribirArchivo(String nombreCompletoArchivo,
@@ -48,7 +45,7 @@ public class ManejadorArchivosGenerico {
 				lineaActual = br.readLine();
 			}
 			br.close();
-            fr.close();
+			fr.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Error al leer el archivo "
 					+ nombreCompletoArchivo);

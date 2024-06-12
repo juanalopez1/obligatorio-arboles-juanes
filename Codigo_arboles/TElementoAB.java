@@ -7,7 +7,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     /**
      * @param unaEtiqueta
-     * @param unosDatos 
+     * @param unosDatos
      */
     @SuppressWarnings("unchecked")
     public TElementoAB(Comparable unaEtiqueta, T unosDatos) {
@@ -77,13 +77,15 @@ public class TElementoAB<T> implements IElementoAB<T> {
      */
     @Override
     public String inOrden() {
-          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
-   @Override
+    @Override
     public void inOrden(Lista<T> unaLista) {
-          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
+
     }
 
     @Override
@@ -114,97 +116,125 @@ public class TElementoAB<T> implements IElementoAB<T> {
         this.hijoDer = elemento;
     }
 
-    
-
     @Override
     public int obtenerAltura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerTamanio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerNivel(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerCantidadHojas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
-    
-     @Override
-    public TElementoAB eliminar(Comparable unaEtiqueta) {
-              TElementoAB  response = this;
-        if (unaEtiqueta.compareTo(etiqueta) < 0) {            
-		this.left = this.left.eliminar(unaEtiqueta);        } 
-		else if (unaEtiqueta.compareTo(etiqueta) > 0) {
-            this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
-        } else {
-            if (this.hijoIzq != null && this.hijoDer != null) {
-                TElementoAB  temp = this;
-                TElementoAB  maxOfTheLeft = this.hijoIzq.findPredecessor();
-                this.value = maxOfTheLeft.getValue();
-                temp.hijoIzq = temp.hijoIzq.eliminar(maxOfTheLeft.getValue());
-            } else if (this.hijoIzq != null) {
-                response = this.hijoIzq;
-            } else if (this.hijoDer != null) {
-                response = this.hijoDer;
-            } else {
-                response = null;
-            }
-        }
-        return response;
-    }
-	
-	
-	 public TElementoAB findPredecessor() {
+
+    /*
+     * @Override
+     * public TElementoAB eliminar(Comparable unaEtiqueta) {
+     * TElementoAB response = this;
+     * if (unaEtiqueta.compareTo(etiqueta) < 0) {
+     * this.left = this.left.eliminar(unaEtiqueta);
+     * } else if (unaEtiqueta.compareTo(etiqueta) > 0) {
+     * this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
+     * } else {
+     * if (this.hijoIzq != null && this.hijoDer != null) {
+     * TElementoAB temp = this;
+     * TElementoAB maxOfTheLeft = this.hijoIzq.findPredecessor();
+     * this.value = maxOfTheLeft.getValue();
+     * temp.hijoIzq = temp.hijoIzq.eliminar(maxOfTheLeft.getValue());
+     * } else if (this.hijoIzq != null) {
+     * response = this.hijoIzq;
+     * } else if (this.hijoDer != null) {
+     * response = this.hijoDer;
+     * } else {
+     * response = null;
+     * }
+     * }
+     * return response;
+     * }
+     */
+
+    public TElementoAB findPredecessor() {
         if (this.hijoDer == null) {
             return this;
         } else {
             return this.hijoDer.findPredecessor();
         }
     }
- 
+
     public TElementoAB findSuccessor() {
-        if (this.hijoIzq  == null) {
+        if (this.hijoIzq == null) {
             return this;
         } else {
-            return this.hijoIzq .findSuccessor();
+            return this.hijoIzq.findSuccessor();
         }
     }
 
-   public Node delete(Integer value) {
-        Node response = this;
-        if (value < this.value) {            this.hijoIzq = this.hijoIzq.delete(value);        } 
-		else if (value > this.value) {
-            this.hijoDer = this.hijoDer.delete(value);
-        } else {
-            if (this.hijoIzq != null && this.hijoDer != null) {
-                Node temp = this;
-                Node maxOfTheLeft = this.left.findPredecessor();
-                this.value = maxOfTheLeft.getValue();
-                temp.hijoIzq = temp.hijoIzq.delete(maxOfTheLeft.getValue());
-            } else if (this.hijoIzq != null) {
-                response = this.hijoIzq;
-            } else if (this.hijoDer != null) {
-                response = this.hijoDer;
+    public TElementoAB getParent(TElementoAB hijoAbuscar) {
+        if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) < 0) {
+            if (hijoAbuscar.getEtiqueta().equals(hijoIzq.getEtiqueta())) {
+                return this;
             } else {
-                response = null;
+                hijoIzq.getParent(hijoAbuscar);
             }
         }
-        return response;
+        if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
+            if (hijoAbuscar.equals(hijoDer)) {
+                return this;
+            } else {
+                hijoDer.getParent(hijoAbuscar);
+            }
+        }
+        this.getParent(hijoAbuscar);
+
     }
-    
- private TElementoAB quitaElNodo() {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    /*
+     * public Nodo delete(Integer value) {
+     * Nodo response = this;
+     * if (value < this.value) {
+     * this.hijoIzq = this.hijoIzq.delete(value);
+     * } else if (value > this.value) {
+     * this.hijoDer = this.hijoDer.delete(value);
+     * } else {
+     * if (this.hijoIzq != null && this.hijoDer != null) {
+     * Nodo temp = this;
+     * Node maxOfTheLeft = this.left.findPredecessor();
+     * this.value = maxOfTheLeft.getValue();
+     * temp.hijoIzq = temp.hijoIzq.delete(maxOfTheLeft.getValue());
+     * } else if (this.hijoIzq != null) {
+     * response = this.hijoIzq;
+     * } else if (this.hijoDer != null) {
+     * response = this.hijoDer;
+     * } else {
+     * response = null;
+     * }
+     * }
+     * return response;
+     * }
+     */
+
+    private TElementoAB quitaElNodo() {
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
+    @Override
+    public TElementoAB eliminar(Comparable unaEtiqueta) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+    }
 
-   
-
-   	
 }
