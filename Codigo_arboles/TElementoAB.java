@@ -227,6 +227,21 @@ public class TElementoAB<T> implements IElementoAB<T> {
         return true;
     }
 
+    public void levelAndLeaf(int level) {
+        if (this.hijoIzq != null || this.hijoDer != null) {
+            level += 1;
+            if (hijoDer != null && hijoIzq != null) {
+                hijoIzq.levelAndLeaf(level);
+                hijoDer.levelAndLeaf(level);
+            } else if (hijoDer == null)
+                hijoIzq.levelAndLeaf(level);
+            else if (hijoIzq == null)
+                hijoDer.levelAndLeaf(level);
+        }
+        if (this.hijoDer == null && this.hijoIzq == null)
+            System.out.println("La hoja " + this.getEtiqueta().toString() + " esta en el nivel " + level);
+    }
+
     /*
      * public Nodo delete(Integer value) {
      * Nodo response = this;

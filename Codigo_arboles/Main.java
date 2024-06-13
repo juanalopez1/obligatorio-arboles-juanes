@@ -21,6 +21,7 @@ public class Main {
     System.out.println(padre.getEtiqueta().toString());
     boolean result = raiz.isItBST();
     System.out.println("Es de busqueda? " + result);
+    raiz.levelAndLeaf(0);
 
     // cargar los productos desde el archivo "altas.txt"
 
