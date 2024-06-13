@@ -75,7 +75,7 @@ No testeamos este metodo ya que no retorna nada (void), simplemente imprime una 
 ## Escritura del algoritmo en seudocódigo formal 
 
 - Seudocódigo **findLargest**
-
+```
 Algoritmo findLargest
     Si (hijoDer == nulo) Entonces
         retornar este
@@ -83,9 +83,9 @@ Algoritmo findLargest
         retornar hijoDer.findLargest()
     FinSi
 FinAlgoritmo
-
+```
 - Seudocódigo **findShortest**
-
+```
 Algoritmo findShortest
     Si (hijoIzq == nulo) Entonces
         retornar este
@@ -93,9 +93,9 @@ Algoritmo findShortest
         retornar hijoIzq.findShortest()
     FinSi
 FinAlgoritmo
-
+```
 - Seudocódigo **getParent**
-
+```
 Algoritmo getParent(hijoAbuscar: TElementoAB) -> TElementoAB
     Si (hijoAbuscar.getEtiqueta() < this.getEtiqueta()) Entonces
         Si (hijoIzq ≠ nulo Y hijoAbuscar.getEtiqueta() == hijoIzq.getEtiqueta()) Entonces
@@ -114,9 +114,9 @@ Algoritmo getParent(hijoAbuscar: TElementoAB) -> TElementoAB
         retornar nulo
     FinSi
 FinAlgoritmo
-
+```
 - Seudocódigo **isItBST**
-
+```
 Algoritmo isItBST() -> boolean
     Si (hijoIzq == nulo Y hijoDer == nulo) Entonces
         retornar verdadero
@@ -141,9 +141,9 @@ Algoritmo isItBST() -> boolean
     FinSi
     retornar verdadero
 FinAlgoritmo
-
+```
 - Seudocódigo **levelAndLeaf**
-
+```
 Procedimiento levelAndLeaf(level: entero)
     Si (hijoIzq ≠ nulo O hijoDer ≠ nulo) Entonces
         level += 1
@@ -160,5 +160,5 @@ Procedimiento levelAndLeaf(level: entero)
         Escribir("La hoja " + this.getEtiqueta().toString() + " está en el nivel " + nivel)
     FinSi
 FinProcedimiento
-
+```
 ## Análisis detallado del orden del tiempo de ejecución del algoritmo
