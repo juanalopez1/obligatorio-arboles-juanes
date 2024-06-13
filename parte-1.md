@@ -1,6 +1,7 @@
-**Ejercicio #1**
-**Operaciones Complementarias – seudocódigo y análisis**
----------------------------------
+```
+Ejercicio #1
+Operaciones Complementarias – seudocódigo y análisis
+```
 # Descripción en lenguaje natural del algoritmo solicitado
 ## Obtener la menor clave del árbol
 Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave menor va a ser la que este mas abajo a la izquierda
