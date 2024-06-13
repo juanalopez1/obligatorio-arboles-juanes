@@ -34,11 +34,11 @@ En todos los tests el árbol armado es el siguiente:
 
 - Caso de prueba **testFindLargest()**
 
-Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo retorna sea 14 (recrdemos que el arbol esta armado hasta el nivel 2). El test comprueba que el método findLargest() correctamente identifica al nodo con el valor 14 como el más grande en el árbol y compara este resultado con el valor esperado usando assertEquals.
+Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo retorna sea 14. El test comprueba que el método findLargest() correctamente identifica al nodo con el valor 14 como el más grande en el árbol y compara este resultado con el valor esperado usando assertEquals.
 
 - Caso de prueba **testFindShortest()**
 
-Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo retorna sea 1 (recrdemos que el arbol esta armado hasta el nivel 2). El test comprueba que el método findShortest() correctamente identifica al nodo con el valor 1 como el más chico en el árbol y compara este resultado con el valor esperado usando assertEquals.
+Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo retorna sea 1. El test comprueba que el método findShortest() correctamente identifica al nodo con el valor 1 como el más chico en el árbol y compara este resultado con el valor esperado usando assertEquals.
 
 - Caso de prueba **testGetParent()**
 
