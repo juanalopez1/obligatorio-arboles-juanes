@@ -166,19 +166,19 @@ public class TElementoAB<T> implements IElementoAB<T> {
      * }
      */
 
-    public TElementoAB findPredecessor() {
+    public TElementoAB encontrarMayor() {
         if (this.hijoDer == null) {
             return this;
         } else {
-            return this.hijoDer.findPredecessor();
+            return this.hijoDer.encontrarMayor();
         }
     }
 
-    public TElementoAB findSuccessor() {
+    public TElementoAB encontrarMenor() {
         if (this.hijoIzq == null) {
             return this;
         } else {
-            return this.hijoIzq.findSuccessor();
+            return this.hijoIzq.encontrarMenor();
         }
     }
 
@@ -200,6 +200,31 @@ public class TElementoAB<T> implements IElementoAB<T> {
             return null;
         }
 
+    }
+
+    public boolean isItBST() {
+        if (hijoIzq == null && hijoDer == null) {
+            return true;
+        }
+        if (hijoIzq != null) {
+            if (hijoIzq.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
+                return false;
+            } else {
+                if (!hijoIzq.isItBST()) {
+                    return false;
+                }
+            }
+        }
+        if (hijoDer != null) {
+            if (hijoDer.getEtiqueta().compareTo(this.getEtiqueta()) < 0) {
+                return false;
+            } else {
+                if (!hijoDer.isItBST()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /*
