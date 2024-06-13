@@ -1,11 +1,11 @@
-## Descripción en lenguaje natural del algoritmo solicitado
-# Obtener la menor clave del árbol
+# Descripción en lenguaje natural del algoritmo solicitado
+## Obtener la menor clave del árbol
 Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave menor va a ser la que este mas abajo a la izquierda
-# Obtener la mayor clave del árbol
+## Obtener la mayor clave del árbol
 Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave mayor va a ser la que este mas abajo a la derecha
-# Obtener la clave inmediata anterior a una clave dada (pasada por parámetro)
+## Obtener la clave inmediata anterior a una clave dada (pasada por parámetro)
 Para obtener el padre de una clave pasada por parametro lo que hicimos fue ir recorriendo el arbol desde un nodo inicial(pasado por parametro ya que es necesario para la recursividad) e ir identificando hijo izquierdo y derecho del mismo, para posteriormente comparar dichos hijos con la clave pasada por parametro. Si la clave coincide con el hijo, tenemos anteriormente el padre de la misma guardado en "inicial".
-# Obtener la cantidad de nodos de un nivel dado (por parámetro)
+## Obtener la cantidad de nodos de un nivel dado (por parámetro)
 
 # Listar todas las hojas cada una con su nivel
 Para esto fuimos contando en un contador que incrementa en 1 cada vez que pasamos por un nivel que no tiene hoja hasta hallar una hoja e imprimir la misma con su respectivo nivel. 
