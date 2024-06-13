@@ -30,7 +30,7 @@ Posterior a eso, si el hijo izquierdo es menor, se llama recursivamente a la fun
 ## Identificación de precondiciones y postcondiciones correspondientes
 ## Descripción en lenguaje natural de los casos de prueba correspondientes a cada operación
 En todos los tests el árbol armado es el siguiente:
-![solo hasta el nivel 2.](https://www.google.com/search?sca_esv=8785e4754248b691&sca_upv=1&rlz=1C1ONGR_esUY1051UY1051&sxsrf=ADLYWILZlH1Ol_hDt0pFZmn5a7714z-uGg:1718297014555&q=arboles+binarios+de+busqueda&udm=2&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgWizR0-0aFOH11Sb5tlNhdzTfxpAVBoexMFZnKJBpl_NibeLqpdqLlYXarYwntqndckCh-_UekfZeEUHAriRf3YwL5wTERH5F8ox7T1JVfAU01pSNpD9G8Gvf0MTkVlPR7TV0tmVzH1FdFoibpEGS6UXFi43aeq0Evrw4VoDrdA24iBpJ&sa=X&ved=2ahUKEwiD8q6Zg9mGAxWOA7kGHYvhDTMQtKgLegQIDRAB&biw=1707&bih=772&dpr=1.13#vhid=FvEwWNxTSkyxtM&vssid=mosaic)
+![Lo construimos solo hasta el nivel dos](bst.png)
 
 - Caso de prueba **testFindLargest()**
 
