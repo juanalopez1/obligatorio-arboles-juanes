@@ -30,6 +30,7 @@ Posterior a eso, si el hijo izquierdo es menor, se llama recursivamente a la fun
 ## Identificación de precondiciones y postcondiciones correspondientes
 ## Descripción en lenguaje natural de los casos de prueba correspondientes a cada operación
 En todos los tests el árbol armado es el siguiente:
+
 ![Lo construimos solo hasta el nivel dos](bst.png)
 
 - Caso de prueba **testFindLargest()**
