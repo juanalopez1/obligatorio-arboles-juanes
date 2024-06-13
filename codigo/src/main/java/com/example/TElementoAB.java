@@ -1,3 +1,5 @@
+package com.example;
+
 public class TElementoAB<T> implements IElementoAB<T> {
 
     private Comparable etiqueta;
@@ -71,7 +73,83 @@ public class TElementoAB<T> implements IElementoAB<T> {
             return null;
         }
     }
+    
+    public TElementoAB findLargest() {
+        if (this.hijoDer == null) {
+            return this;
+        } else {
+            return this.hijoDer.findLargest();
+        }
+    }
 
+    public TElementoAB findShortest() {
+        if (this.hijoIzq == null) {
+            return this;
+        } else {
+            return this.hijoIzq.findShortest();
+        }
+    }
+
+    public TElementoAB getParent(TElementoAB hijoAbuscar) {
+        if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) < 0) {
+            if (hijoAbuscar.getEtiqueta().equals(hijoIzq.getEtiqueta())) {
+                return this;
+            } else {
+                return (hijoIzq.getParent(hijoAbuscar));
+            }
+        }
+        if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
+            if (hijoAbuscar.equals(hijoDer)) {
+                return this;
+            } else {
+                return (hijoDer.getParent(hijoAbuscar));
+            }
+        } else {
+            return null;
+        }
+
+    }
+
+    public boolean isItBST() {
+        if (hijoIzq == null && hijoDer == null) {
+            return true;
+        }
+        if (hijoIzq != null) {
+            if (hijoIzq.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
+                return false;
+            } else {
+                if (!hijoIzq.isItBST()) {
+                    return false;
+                }
+            }
+        }
+        if (hijoDer != null) {
+            if (hijoDer.getEtiqueta().compareTo(this.getEtiqueta()) < 0) {
+                return false;
+            } else {
+                if (!hijoDer.isItBST()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void levelAndLeaf(int level) {
+        if (this.hijoIzq != null || this.hijoDer != null) {
+            level += 1;
+            if (hijoDer != null && hijoIzq != null) {
+                hijoIzq.levelAndLeaf(level);
+                hijoDer.levelAndLeaf(level);
+            } else if (hijoDer == null)
+                hijoIzq.levelAndLeaf(level);
+            else if (hijoIzq == null)
+                hijoDer.levelAndLeaf(level);
+        }
+        if (this.hijoDer == null && this.hijoIzq == null)
+            System.out.println("La hoja " + this.getEtiqueta().toString() + " esta en el nivel " + level);
+    }
+    
     /**
      * @return recorrida en inorden del subArbol que cuelga del elemento actual
      */
@@ -139,133 +217,6 @@ public class TElementoAB<T> implements IElementoAB<T> {
         throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
                                                                        // Tools | Templates.
     }
-
-    /*
-     * @Override
-     * public TElementoAB eliminar(Comparable unaEtiqueta) {
-     * TElementoAB response = this;
-     * if (unaEtiqueta.compareTo(etiqueta) < 0) {
-     * this.left = this.left.eliminar(unaEtiqueta);
-     * } else if (unaEtiqueta.compareTo(etiqueta) > 0) {
-     * this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
-     * } else {
-     * if (this.hijoIzq != null && this.hijoDer != null) {
-     * TElementoAB temp = this;
-     * TElementoAB maxOfTheLeft = this.hijoIzq.findPredecessor();
-     * this.value = maxOfTheLeft.getValue();
-     * temp.hijoIzq = temp.hijoIzq.eliminar(maxOfTheLeft.getValue());
-     * } else if (this.hijoIzq != null) {
-     * response = this.hijoIzq;
-     * } else if (this.hijoDer != null) {
-     * response = this.hijoDer;
-     * } else {
-     * response = null;
-     * }
-     * }
-     * return response;
-     * }
-     */
-
-    public TElementoAB encontrarMayor() {
-        if (this.hijoDer == null) {
-            return this;
-        } else {
-            return this.hijoDer.encontrarMayor();
-        }
-    }
-
-    public TElementoAB encontrarMenor() {
-        if (this.hijoIzq == null) {
-            return this;
-        } else {
-            return this.hijoIzq.encontrarMenor();
-        }
-    }
-
-    public TElementoAB getParent(TElementoAB hijoAbuscar) {
-        if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) < 0) {
-            if (hijoAbuscar.getEtiqueta().equals(hijoIzq.getEtiqueta())) {
-                return this;
-            } else {
-                return (hijoIzq.getParent(hijoAbuscar));
-            }
-        }
-        if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
-            if (hijoAbuscar.equals(hijoDer)) {
-                return this;
-            } else {
-                return (hijoDer.getParent(hijoAbuscar));
-            }
-        } else {
-            return null;
-        }
-
-    }
-
-    public boolean isItBST() {
-        if (hijoIzq == null && hijoDer == null) {
-            return true;
-        }
-        if (hijoIzq != null) {
-            if (hijoIzq.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
-                return false;
-            } else {
-                if (!hijoIzq.isItBST()) {
-                    return false;
-                }
-            }
-        }
-        if (hijoDer != null) {
-            if (hijoDer.getEtiqueta().compareTo(this.getEtiqueta()) < 0) {
-                return false;
-            } else {
-                if (!hijoDer.isItBST()) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public void levelAndLeaf(int level) {
-        if (this.hijoIzq != null || this.hijoDer != null) {
-            level += 1;
-            if (hijoDer != null && hijoIzq != null) {
-                hijoIzq.levelAndLeaf(level);
-                hijoDer.levelAndLeaf(level);
-            } else if (hijoDer == null)
-                hijoIzq.levelAndLeaf(level);
-            else if (hijoIzq == null)
-                hijoDer.levelAndLeaf(level);
-        }
-        if (this.hijoDer == null && this.hijoIzq == null)
-            System.out.println("La hoja " + this.getEtiqueta().toString() + " esta en el nivel " + level);
-    }
-
-    /*
-     * public Nodo delete(Integer value) {
-     * Nodo response = this;
-     * if (value < this.value) {
-     * this.hijoIzq = this.hijoIzq.delete(value);
-     * } else if (value > this.value) {
-     * this.hijoDer = this.hijoDer.delete(value);
-     * } else {
-     * if (this.hijoIzq != null && this.hijoDer != null) {
-     * Nodo temp = this;
-     * Node maxOfTheLeft = this.left.findPredecessor();
-     * this.value = maxOfTheLeft.getValue();
-     * temp.hijoIzq = temp.hijoIzq.delete(maxOfTheLeft.getValue());
-     * } else if (this.hijoIzq != null) {
-     * response = this.hijoIzq;
-     * } else if (this.hijoDer != null) {
-     * response = this.hijoDer;
-     * } else {
-     * response = null;
-     * }
-     * }
-     * return response;
-     * }
-     */
 
     private TElementoAB quitaElNodo() {
         throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose

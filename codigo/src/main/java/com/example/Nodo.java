@@ -1,3 +1,5 @@
+package com.example;
+
 public class Nodo<T> implements INodo<T> {
 
     private final Comparable etiqueta;

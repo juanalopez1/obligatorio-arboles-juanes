@@ -1,3 +1,4 @@
+package com.example;
 
 import java.util.LinkedList;
 
@@ -46,8 +47,6 @@ public interface IElementoAB<T> {
      */
     public TElementoAB<T> buscar(Comparable unaEtiqueta);
 
- 
-
     /**
      * Inserta un elemento dentro del arbol.
      *
@@ -56,7 +55,6 @@ public interface IElementoAB<T> {
      */
     public boolean insertar(TElementoAB<T> elemento);
 
-  
     /**
      * Imprime en inorden el arbol separado por guiones.
      *
@@ -64,7 +62,7 @@ public interface IElementoAB<T> {
      */
     public String inOrden();
 
-     /**
+    /**
      * pone las etiquetas del recorrido en inorden en una TLista.
      *
      * @param unaLista
@@ -77,37 +75,36 @@ public interface IElementoAB<T> {
      * @return
      */
     public T getDatos();
-	
-/**
-	 * Retorna la altura del arbol cuya raiz es la del nodo actual.
-	 * @return Altura del subarbol.
-	 */
-	public int obtenerAltura();
-	
-	/**
-	 * Retorna el tamaño del arbol cuya raiz es la del nodo actual.
-	 * @return tamaño del subarbol.
-	 */
-	public int obtenerTamanio();
-	
-	/**
-	 * Retorna el nivel del elemento cuya etiqueta es la pasada por par�metro.
-	 * @param unaEtiqueta
-	 * @return Nivel
-	 */
-	public int obtenerNivel(Comparable unaEtiqueta);
-	
-	/**
-	 * Retorna la cantidad de hojas del arbol cuya raiz es la del nodo actual.
-	 * @return Cantidad de hojas del subarbol.
-	 */
-	public int obtenerCantidadHojas();
 
-public TElementoAB eliminar(Comparable unaEtiqueta);
+    /**
+     * Retorna la altura del arbol cuya raiz es la del nodo actual.
+     * 
+     * @return Altura del subarbol.
+     */
+    public int obtenerAltura();
 
+    /**
+     * Retorna el tamaño del arbol cuya raiz es la del nodo actual.
+     * 
+     * @return tamaño del subarbol.
+     */
+    public int obtenerTamanio();
+
+    /**
+     * Retorna el nivel del elemento cuya etiqueta es la pasada por par�metro.
+     * 
+     * @param unaEtiqueta
+     * @return Nivel
+     */
+    public int obtenerNivel(Comparable unaEtiqueta);
+
+    /**
+     * Retorna la cantidad de hojas del arbol cuya raiz es la del nodo actual.
+     * 
+     * @return Cantidad de hojas del subarbol.
+     */
+    public int obtenerCantidadHojas();
+
+    public TElementoAB eliminar(Comparable unaEtiqueta);
 
 }
-
-
-
-
