@@ -162,4 +162,35 @@ Procedimiento levelAndLeaf(level: entero)
     FinSi
 FinProcedimiento
 ```
-## Análisis detallado del orden del tiempo de ejecución del algoritmo
+## Orden del tiempo de ejecución del algoritmo
+
+- Orden de **findLargest**
+```
+O(h)
+```
+El orden de ejecución del método findLargest() es principalmente determinado por la altura del subárbol derecho del nodo actual, siendo O(h) en el peor de los casos, donde h es la altura del subárbol.
+
+- Orden de **findShortest**
+```
+O(h)
+```
+El orden de ejecución del método findShortest() es O(h), donde h es la altura del subárbol izquierdo del nodo actual, reflejando la necesidad de explorar el subárbol izquierdo hasta encontrar el nodo más superficial.
+
+- Orden de **getParent**
+```
+O(h)
+```
+El orden de ejecución del método getParent(TElementoAB hijoAbuscar) es O(h), donde h es la altura del árbol, reflejando el peor caso en el que el nodo hijo buscado está en el extremo opuesto del árbol al nodo actual.
+
+- Orden de **isItBST**
+```
+O(n)
+```
+El orden de ejecución del método isItBST() es O(n), donde n es el número total de nodos en el árbol, reflejando la necesidad de visitar cada nodo una vez para verificar la propiedad de BST.
+
+- Orden de **levelAndLeaf**
+```
+O(n)
+```
+El orden de ejecución del método levelAndLeaf(int level) es O(n), donde n es el número total de nodos en el árbol, reflejando la necesidad de visitar cada nodo una vez para calcular y imprimir su nivel.
+
