@@ -187,17 +187,18 @@ public class TElementoAB<T> implements IElementoAB<T> {
             if (hijoAbuscar.getEtiqueta().equals(hijoIzq.getEtiqueta())) {
                 return this;
             } else {
-                hijoIzq.getParent(hijoAbuscar);
+                return (hijoIzq.getParent(hijoAbuscar));
             }
         }
         if (hijoAbuscar.getEtiqueta().compareTo(this.getEtiqueta()) > 0) {
             if (hijoAbuscar.equals(hijoDer)) {
                 return this;
             } else {
-                hijoDer.getParent(hijoAbuscar);
+                return (hijoDer.getParent(hijoAbuscar));
             }
+        } else {
+            return null;
         }
-        this.getParent(hijoAbuscar);
 
     }
 
