@@ -28,7 +28,7 @@ Posterior a eso, si el hijo izquierdo es menor, se llama recursivamente a la fun
 
 
 ## Identificación de precondiciones y postcondiciones correspondientes
-- [**findLargest()**]{#C2EDED}
+- **findLargest()**
 
 Precondiciones
 ```
@@ -45,7 +45,7 @@ No modifica el árbol: El método no modificará la estructura del árbol ni los
 Terminación correcta: El método debe finalizar cuando se alcance un nodo que no tiene hijo derecho (hijoDer es nulo), retornando dicho nodo.
 ```
 
-- [**findShortest()**]{#C2EDED}
+- **findShortest()**
 
 Precondiciones
 ```
