@@ -73,7 +73,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
             return null;
         }
     }
-    
+
     public TElementoAB findLargest() {
         if (this.hijoDer == null) {
             return this;
@@ -149,7 +149,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
         if (this.hijoDer == null && this.hijoIzq == null)
             System.out.println("La hoja " + this.getEtiqueta().toString() + " esta en el nivel " + level);
     }
-    
+
     /**
      * @return recorrida en inorden del subArbol que cuelga del elemento actual
      */
