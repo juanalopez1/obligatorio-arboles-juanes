@@ -2,7 +2,7 @@
 Ejercicio #1
 Operaciones Complementarias – seudocódigo y análisis
 ```
-## [Descripción en lenguaje natural del los algoritmos solicitados]{#C2EDED}
+## Descripción en lenguaje natural del los algoritmos solicitados
 - Obtener la menor clave del árbol
 
 Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave menor va a ser la que este mas abajo a la izquierda. El algoritmo verifica si el nodo actual (this) tiene un hijo derecho (hijoDer). Si no lo tiene, el nodo actual es el mayor y lo retorna. Si tiene un hijo derecho, llama recursivamente a findLargest en ese hijo. De esta forma, el método recorre el árbol hacia la derecha hasta encontrar el nodo más a la derecha, que es el mayor elemento del árbol.
@@ -27,8 +27,8 @@ Este algoritmo comprueba si un árbol binario es un árbol de búsqueda binario.
 Posterior a eso, si el hijo izquierdo es menor, se llama recursivamente a la función dentro de *if (!hijoIzq.isItBST())*, si el resultado de isItBST es true, no entra dentro del if (por la negación), ya que si no lo hace se retorna verdadero afuera del if. Si entra significa que el resultado de la recursión fue false, ! la cambia a true, entra al if, y retorna falso. Lo mismo para el caso de si el hijo derecho es mayor.
 
 
-## [Identificación de precondiciones y postcondiciones correspondientes]{#C2EDED}
-- **findLargest()**
+## Identificación de precondiciones y postcondiciones correspondientes
+- [**findLargest()**]{#C2EDED}
 
 Precondiciones
 ```
@@ -45,7 +45,7 @@ No modifica el árbol: El método no modificará la estructura del árbol ni los
 Terminación correcta: El método debe finalizar cuando se alcance un nodo que no tiene hijo derecho (hijoDer es nulo), retornando dicho nodo.
 ```
 
-- **findShortest()**
+- [**findShortest()**]{#C2EDED}
 
 Precondiciones
 ```
@@ -126,7 +126,7 @@ Impresión de hojas: Para cada hoja del árbol (nodo sin hijos), el método impr
 
 No modifica el árbol: El método no debe modificar la estructura del árbol ni los datos de los nodos. Solo debe realizar lecturas y llamadas recursivas.
 ```
-## [Descripción en lenguaje natural de los casos de prueba correspondientes a cada operación]{#C2EDED}
+## Descripción en lenguaje natural de los casos de prueba correspondientes a cada operación
 En todos los tests el árbol armado es el siguiente:
 
 ![Lo construimos solo hasta el nivel dos](bst.png)
@@ -171,7 +171,7 @@ Luego, el método llama a isItBST() para verificar si esta estructura es un BST 
 
 No testeamos este metodo ya que no retorna nada (void), simplemente imprime una string con los datos.
 
-## [Escritura del algoritmo en seudocódigo formal]{#C2EDED}
+## Escritura del algoritmo en seudocódigo formal 
 
 - Seudocódigo **findLargest**
 ```
@@ -260,7 +260,7 @@ Procedimiento levelAndLeaf(level: entero)
     FinSi
 FinProcedimiento
 ```
-## [Orden del tiempo de ejecución de los algoritmos]{#C2EDED}
+## Orden del tiempo de ejecución de los algoritmos
 
 - Orden de **findLargest**
 ```
