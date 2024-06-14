@@ -28,14 +28,15 @@ Posterior a eso, si el hijo izquierdo es menor, se llama recursivamente a la fun
 
 
 ## Identificación de precondiciones y postcondiciones correspondientes
-- findLargest()
-**Precondiciones**
+- **findLargest()**
+
+Precondiciones
 ```
 Árbol inicializado: El árbol binario de búsqueda (BST) debe estar correctamente construido con todos los nodos correctamente enlazados.
 
 Nodo válido: El método debe ser llamado sobre un nodo válido del árbol (this no debe ser nulo).
 ```
-**Postcondiciones**
+Postcondiciones
 ```
 Elemento más grande encontrado: El método retornará el nodo que contiene el valor más grande en el subárbol que tiene como raíz el nodo desde el cual se invocó el método.
 
@@ -44,14 +45,15 @@ No modifica el árbol: El método no modificará la estructura del árbol ni los
 Terminación correcta: El método debe finalizar cuando se alcance un nodo que no tiene hijo derecho (hijoDer es nulo), retornando dicho nodo.
 ```
 
-- findShortest()
-**Precondiciones**
+- **findShortest()**
+
+Precondiciones
 ```
 Árbol inicializado: El árbol binario de búsqueda (BST) debe estar correctamente construido con todos los nodos adecuadamente enlazados.
 
 Nodo válido: El método debe ser llamado sobre un nodo válido del árbol (this no debe ser nulo).
 ```
-**Postcondiciones**
+Postcondiciones
 ```
 Elemento más pequeño encontrado: El método retornará el nodo que contiene el valor más pequeño en el subárbol cuya raíz es el nodo desde el cual se invocó el método.
 
@@ -60,8 +62,9 @@ No modifica el árbol: El método no alterará la estructura del árbol ni los v
 Terminación correcta: El método finalizará cuando se alcance un nodo que no tenga hijo izquierdo (hijoIzq es nulo), retornando dicho nodo.
 ```
 
-- getParent()
-**Precondiciones**
+- **getParent()**
+
+Precondiciones
 ```
 Árbol inicializado: El árbol binario de búsqueda (BST) debe estar correctamente construido con todos los nodos adecuadamente enlazados.
 
@@ -73,7 +76,7 @@ Método getEtiqueta implementado: La clase del nodo (TElementoAB) debe tener imp
 
 Comparabilidad de etiquetas: Las etiquetas de los nodos deben ser comparables entre sí, ya que el método usa compareTo para comparar las etiquetas.
 ```
-**Postcondiciones**
+Postcondiciones
 ```
 Nodo padre encontrado: Si el nodo hijoAbuscar está en el árbol, el método retornará el nodo padre del hijoAbuscar.
 
@@ -84,8 +87,9 @@ No modifica el árbol: El método no alterará la estructura del árbol ni los v
 Terminación correcta: El método finalizará correctamente cuando se encuentre el nodo hijoAbuscar y se retorne su padre, o cuando se determine que hijoAbuscar no está en el subárbol, retornando null.
 ```
 
-- isItBST()
-**Precondiciones**
+- **isItBST()**
+
+Precondiciones
 ```
 Árbol inicializado: El árbol binario debe estar correctamente construido con todos los nodos adecuadamente enlazados.
 
@@ -95,7 +99,7 @@ Comparabilidad de etiquetas: Las etiquetas de los nodos deben ser comparables en
 
 Nodos no nulos: Los nodos izquierdo (hijoIzq) y derecho (hijoDer), si existen, no deben ser nulos.
 ```
-**Postcondiciones**
+Postcondiciones
 ```
 Verificación correcta del BST: El método retornará true si el subárbol cuya raíz es el nodo desde el cual se invocó el método cumple con las propiedades de un árbol binario de búsqueda (BST). Retornará false si no las cumple.
 
@@ -104,8 +108,9 @@ No modifica el árbol: El método no alterará la estructura del árbol ni los v
 Terminación correcta: El método finalizará correctamente después de verificar todas las condiciones necesarias en cada nodo del subárbol, asegurando que cada nodo respeta las propiedades del BST (nodos izquierdos menores que el nodo actual y nodos derechos mayores que el nodo actual).
 ```
 
-- levelAndLeaf()
-**Precondiciones**
+- **levelAndLeaf()**
+
+Precondiciones
 ```
 Árbol inicializado: El árbol debe estar correctamente construido y los nodos deben estar enlazados adecuadamente.
 
@@ -113,7 +118,7 @@ Nivel inicial válido: El parámetro level debe ser un entero válido que repres
 
 Método getEtiqueta definido: La clase del nodo (TElementoAB o similar) debe tener un método getEtiqueta que retorne una representación en cadena del nodo.
 ```
-**Postcondiciones**
+Postcondiciones
 ```
 Recursión correcta: El método debe llamar recursivamente a sí mismo incrementando el nivel cuando el nodo actual tiene hijos.
 
