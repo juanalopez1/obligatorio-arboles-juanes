@@ -174,7 +174,7 @@ Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo
 
 - Caso de prueba **testNodesPerLevel()**
 
-Creamos el arbol binario de la imagen y llamamos al metodo nodesPerLevel() pasandole como primer parametro el valor del nivel que queremos saber cuantos nodos tiene, luego le pasamos 0 para que inicie desde el nivel 0 a buscar. Luego comprobamos que el resultado sea igual al esperado.
+Creamos el arbol binario de la imagen y llamamos al metodo nodesPerLevel() pasandole como primer parametro el valor del nivel que queremos saber cuantos nodos tiene (nivel 2), luego le pasamos 0 para que inicie desde el nivel 0 a buscar. Luego comprobamos que el resultado sea igual al esperado que es 3.
 
 - Caso de prueba **testItIsBST()**
 
