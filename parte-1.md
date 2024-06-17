@@ -249,8 +249,8 @@ FinAlgoritmo
 ```
 - Seudocódigo **nodesPerLevel**
 ```
-Algoritmo nodesPerLevel(nivelObjetivo, nivelActual) Como Entero
-    Si (nivelActual = nivelObjetivo) Entonces
+Algoritmo nodesPerLevel(nivelObjetivo, nivelActual) -> int
+    Si (nivelActual == nivelObjetivo) Entonces
         Retornar 1
     FinSi
     
@@ -266,7 +266,7 @@ Algoritmo nodesPerLevel(nivelObjetivo, nivelActual) Como Entero
         rightNodes <- Este.hijoDer.nodesPerLevel(nivelObjetivo, nivelActual + 1)
     FinSi
 
-    Retornar leftNodes + rightNodes
+    retornar leftNodes + rightNodes
 FinAlgoritmo
 ```
 - Seudocódigo **isItBST**
