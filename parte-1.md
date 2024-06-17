@@ -5,11 +5,11 @@ Operaciones Complementarias – seudocódigo y análisis
 ## Descripción en lenguaje natural del los algoritmos solicitados
 - Obtener la menor clave del árbol
 
-Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave menor va a ser la que este mas abajo a la izquierda. El algoritmo verifica si el nodo actual (this) tiene un hijo derecho (hijoDer). Si no lo tiene, el nodo actual es el mayor y lo retorna. Si tiene un hijo derecho, llama recursivamente a findLargest en ese hijo. De esta forma, el método recorre el árbol hacia la derecha hasta encontrar el nodo más a la derecha, que es el mayor elemento del árbol.
+Para obtener la menor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave menor va a ser la que este mas abajo a la izquierda. El algoritmo verifica si el nodo actual (this) tiene un hijo derecho (hijoIzq). Si no lo tiene, el nodo actual es el menor y lo retorna. Si tiene un hijo izquierdo, llama recursivamente a findShortest en ese hijo. De esta forma, el método recorre el árbol hacia la izquierda hasta encontrar el nodo más a la izquierda, que es el menor elemento del árbol.
 
 - Obtener la mayor clave del árbol
 
-Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave mayor va a ser la que este mas abajo a la derecha. El algoritmo verifica si el nodo actual (this) tiene un hijo izquierdo (hijoIzq). Si no lo tiene, el nodo actual es el menor y lo retorna. Si tiene un hijo izquierdo, llama recursivamente a findShortest en ese hijo. De esta forma, el método recorre el árbol hacia la izquierda hasta encontrar el nodo más a la izquierda, que es el menor elemento del árbol.
+Para obtener la mayor clave del árbol, teniendo el cuenta que el arbol es de busqueda, sabemos que la clave mayor va a ser la que este mas abajo a la derecha. El algoritmo verifica si el nodo actual (this) tiene un hijo derecho (hijoDer). Si no lo tiene, el nodo actual es el mayor y lo retorna. Si tiene un hijo derecho, llama recursivamente a findLargest en ese hijo. De esta forma, el método recorre el árbol hacia la derecha hasta encontrar el nodo más a la derecha, que es el mayor elemento del árbol.
 
 - Obtener la clave inmediata anterior a una clave dada (pasada por parámetro)
 
