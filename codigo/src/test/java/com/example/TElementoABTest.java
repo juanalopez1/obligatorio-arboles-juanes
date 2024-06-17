@@ -127,5 +127,25 @@ public class TElementoABTest {
         boolean result = raiz.isItBST();
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testNodesPerLevel() {
+        System.out.println("nodesPerLevel");
+        TArbolBB<Integer> arbol = new TArbolBB<>();
+        TElementoAB<Integer> raiz = new TElementoAB<>(5, 5);
+        TElementoAB<Integer> nueve = new TElementoAB<>(9, 9);
+        TElementoAB<Integer> diez = new TElementoAB<>(10, 10);
+        TElementoAB<Integer> uno = new TElementoAB<>(1, 1);
+        TElementoAB<Integer> catorce = new TElementoAB<>(14, 14);
+        TElementoAB<Integer> seis = new TElementoAB<>(6, 6);
+        raiz.setHijoDer(diez);
+        raiz.setHijoIzq(nueve);
+        nueve.setHijoIzq(uno);
+        nueve.setHijoDer(seis);
+        diez.setHijoDer(catorce);
+        int expResult = 3;
+        int result = raiz.nodesPerLevel(2, 0);
+        assertEquals(expResult, result);
+    }
 
 }

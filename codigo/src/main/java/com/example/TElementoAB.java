@@ -109,6 +109,24 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
 
     }
+    
+    public int nodesPerLevel(int nivelObjetivo, int nivelActual) {
+        if (nivelActual == nivelObjetivo) {
+            return 1;
+        }
+        int leftNodes = 0;
+        int rightNodes = 0;
+
+        if (this.hijoIzq != null) {
+            leftNodes = this.hijoIzq.nodesPerLevel(nivelObjetivo, nivelActual + 1);
+        }
+
+        if (this.hijoDer != null) {
+            rightNodes = this.hijoDer.nodesPerLevel(nivelObjetivo, nivelActual + 1);
+        }
+
+        return leftNodes + rightNodes;
+    }
 
     public boolean isItBST() {
         if (hijoIzq == null && hijoDer == null) {
@@ -208,8 +226,30 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     @Override
     public int obtenerNivel(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-                                                                       // Tools | Templates.
+        
+        int izq=0;
+        int der=0;
+        
+        if (this == null)
+            return 0;
+        
+        else if (this.getEtiqueta().equals(unaEtiqueta)) {
+                return 1;
+            }
+            
+        else { 
+                if(hijoIzq != null)
+                    izq= hijoIzq.obtenerNivel(unaEtiqueta);
+            
+          
+                if(hijoDer!= null)
+                    der= hijoDer.obtenerNivel(unaEtiqueta);
+                
+                
+            }
+            return izq+der;
+       
+        
     }
 
     @Override

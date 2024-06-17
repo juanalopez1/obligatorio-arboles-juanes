@@ -17,6 +17,8 @@ Para obtener el padre de una clave pasada por parametro lo que hicimos fue ir re
 
 - Obtener la cantidad de nodos de un nivel dado (por parámetro)
 
+El método nodesPerLevel recorre un árbol binario desde la raíz hasta el nivel especificado (nivelObjetivo), llevando un contador del nivel actual (nivelActual). Si el nivel actual coincide con el nivel objetivo, retorna 1 indicando que hay un nodo en ese nivel. Luego, el método llama recursivamente a los subárboles izquierdo (hijoIzq) y derecho (hijoDer), incrementando el nivel actual en 1. Suma los resultados de estas llamadas recursivas, de manera que cada nodo en el nivel objetivo contribuirá con un 1 al total. Finalmente, retorna la suma de los nodos encontrados en el nivel objetivo, proporcionando el total de nodos en dicho nivel.
+
 - Listar todas las hojas cada una con su nivel
 
 Para esto fuimos contando en un contador que incrementa en 1 cada vez que pasamos por un nivel que no tiene hoja, hasta hallar una hoja e imprimir la misma con su respectivo nivel. 
@@ -126,6 +128,32 @@ Impresión de hojas: Para cada hoja del árbol (nodo sin hijos), el método impr
 
 No modifica el árbol: El método no debe modificar la estructura del árbol ni los datos de los nodos. Solo debe realizar lecturas y llamadas recursivas.
 ```
+
+- **nodesPerLevel()**
+
+Precondiciones
+```
+El nodo actual no debe ser nulo: El método nodesPerLevel se llama en un nodo de un árbol binario, por lo que se asume que el nodo desde el que se inicia la llamada no es nulo.
+
+El árbol debe estar bien formado: Se asume que el árbol binario no tiene ciclos y cada nodo tiene a lo sumo dos hijos (hijoIzq y hijoDer), cumpliendo con la estructura de un árbol binario.
+
+El nivel objetivo debe ser un valor no negativo: El parámetro nivelObjetivo debe ser mayor o igual a 0, ya que los niveles en un árbol binario se cuentan a partir de 0 (la raíz).
+
+El nivel actual debe ser menor o igual que el nivel objetivo: Inicialmente, cuando se llama al método, el parámetro nivelActual debe ser 0 o un valor menor que nivelObjetivo para que el método tenga sentido y pueda llegar al nivel deseado.
+
+Los nodos del árbol deben tener referencias válidas a sus hijos: Si un nodo tiene un hijo, las referencias hijoIzq y hijoDer deben apuntar a instancias válidas de nodos o ser nulas si no hay hijos en esas posiciones.
+```
+Postcondiciones
+```
+El resultado es un entero no negativo: El método siempre retorna un valor entero mayor o igual a 0, que representa la cantidad de nodos en el nivel especificado (nivelObjetivo).
+
+El resultado refleja correctamente el número de nodos en el nivel objetivo: Si el nivel objetivo es válido y existe en el árbol, el valor retornado es la cantidad exacta de nodos en ese nivel. Si el nivel objetivo no existe en el árbol (por ejemplo, es mayor que la altura del árbol), el método retorna 0.
+
+El árbol permanece sin modificaciones: La estructura del árbol binario no se altera de ninguna manera como resultado de la ejecución del método. No se cambian ni los valores de los nodos ni sus enlaces.
+
+La ejecución del método no causa efectos secundarios: No se realizan cambios en el estado de otros objetos o variables fuera del método.
+```
+
 ## Descripción en lenguaje natural de los casos de prueba correspondientes a cada operación
 En todos los tests el árbol armado es el siguiente:
 
@@ -170,6 +198,10 @@ Luego, el método llama a isItBST() para verificar si esta estructura es un BST 
 - Caso de prueba **levelAndLeaf()**
 
 No testeamos este metodo ya que no retorna nada (void), simplemente imprime una string con los datos.
+
+- Caso de prueba **testNodesPerLevel()**
+
+Creamos el arbol binario de la imagen y llamamos al metodo nodesPerLevel() pasandole como primer parametro el valor del nivel que queremos saber cuantos nodos tiene, luego le pasamos 0 para que inicie desde el nivel 0 a buscar. Luego comprobamos que el resultado sea igual al esperado.
 
 ## Escritura del algoritmo en seudocódigo formal 
 
@@ -259,6 +291,39 @@ Procedimiento levelAndLeaf(level: entero)
         Escribir("La hoja " + this.getEtiqueta().toString() + " está en el nivel " + nivel)
     FinSi
 FinProcedimiento
+```
+- Seudocódigo **nodesPerLevel**
+```
+Algoritmo nodesPerLevel
+    Tipo Nodo
+        Definir clave Como Entero
+        Definir hijoIzq, hijoDer Como Nodo
+    FinTipo
+
+    Funcion nodesPerLevel(nodo Como Nodo, nivelObjetivo Como Entero, nivelActual Como Entero) Como Entero
+        Si nodo Es Nulo Entonces
+            retornar 0
+        FinSi
+
+        Si nivelActual = nivelObjetivo Entonces
+            retornar 1
+        FinSi
+
+        Definir leftNodes, rightNodes Como Entero
+        leftNodes = 0
+        rightNodes = 0
+
+        Si nodo.hijoIzq No Es Nulo Entonces
+            leftNodes = nodesPerLevel(nodo.hijoIzq, nivelObjetivo, nivelActual + 1)
+        FinSi
+
+        Si nodo.hijoDer No Es Nulo Entonces
+            rightNodes = nodesPerLevel(nodo.hijoDer, nivelObjetivo, nivelActual + 1)
+        FinSi
+
+        retornar leftNodes + rightNodes
+    FinFuncion
+FinAlgoritmo
 ```
 ## Orden del tiempo de ejecución de los algoritmos
 

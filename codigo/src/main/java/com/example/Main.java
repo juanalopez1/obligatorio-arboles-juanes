@@ -13,16 +13,19 @@ public class Main {
         TElementoAB<Integer> uno = new TElementoAB<>(1, 1);
         TElementoAB<Integer> catorce = new TElementoAB<>(14, 14);
         TElementoAB<Integer> seis = new TElementoAB<>(6, 6);
+        TElementoAB<Integer> nueve = new TElementoAB<>(9, 9);
         raiz.setHijoDer(diez);
         raiz.setHijoIzq(tres);
         tres.setHijoIzq(uno);
         tres.setHijoDer(seis);
         diez.setHijoDer(catorce);
+        diez.setHijoIzq(nueve);
         IElementoAB padre = raiz.getParent(uno);
         System.out.println(padre.getEtiqueta().toString());
         boolean result = raiz.isItBST();
         System.out.println("Es de busqueda? " + result);
         raiz.levelAndLeaf(0);
+        System.out.println("Cantidad de nodos en un nivel = " + raiz.nodesPerLevel(2, 0));
 
         // cargar los productos desde el archivo "altas.txt"
 
