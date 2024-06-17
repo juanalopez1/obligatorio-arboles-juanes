@@ -30,22 +30,6 @@ Posterior a eso, si el hijo izquierdo es menor, se llama recursivamente a la fun
 
 
 ## Identificación de precondiciones y postcondiciones correspondientes
-- **findLargest()**
-
-Precondiciones
-```
-Árbol inicializado: El árbol binario de búsqueda (BST) debe estar correctamente construido con todos los nodos correctamente enlazados.
-
-Nodo válido: El método debe ser llamado sobre un nodo válido del árbol (this no debe ser nulo).
-```
-Postcondiciones
-```
-Elemento más grande encontrado: El método retornará el nodo que contiene el valor más grande en el subárbol que tiene como raíz el nodo desde el cual se invocó el método.
-
-No modifica el árbol: El método no modificará la estructura del árbol ni los valores de los nodos. Solo realiza lecturas y llamadas recursivas.
-
-Terminación correcta: El método debe finalizar cuando se alcance un nodo que no tiene hijo derecho (hijoDer es nulo), retornando dicho nodo.
-```
 
 - **findShortest()**
 
@@ -62,6 +46,23 @@ Elemento más pequeño encontrado: El método retornará el nodo que contiene el
 No modifica el árbol: El método no alterará la estructura del árbol ni los valores de los nodos. Solo realiza lecturas y llamadas recursivas.
 
 Terminación correcta: El método finalizará cuando se alcance un nodo que no tenga hijo izquierdo (hijoIzq es nulo), retornando dicho nodo.
+```
+
+- **findLargest()**
+
+Precondiciones
+```
+Árbol inicializado: El árbol binario de búsqueda (BST) debe estar correctamente construido con todos los nodos correctamente enlazados.
+
+Nodo válido: El método debe ser llamado sobre un nodo válido del árbol (this no debe ser nulo).
+```
+Postcondiciones
+```
+Elemento más grande encontrado: El método retornará el nodo que contiene el valor más grande en el subárbol que tiene como raíz el nodo desde el cual se invocó el método.
+
+No modifica el árbol: El método no modificará la estructura del árbol ni los valores de los nodos. Solo realiza lecturas y llamadas recursivas.
+
+Terminación correcta: El método debe finalizar cuando se alcance un nodo que no tiene hijo derecho (hijoDer es nulo), retornando dicho nodo.
 ```
 
 - **getParent()**
