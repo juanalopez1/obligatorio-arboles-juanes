@@ -89,6 +89,31 @@ No modifica el árbol: El método no alterará la estructura del árbol ni los v
 Terminación correcta: El método finalizará correctamente cuando se encuentre el nodo hijoAbuscar y se retorne su padre, o cuando se determine que hijoAbuscar no está en el subárbol, retornando null.
 ```
 
+- **nodesPerLevel()**
+
+Precondiciones
+```
+El nodo actual no debe ser nulo: El método nodesPerLevel se llama en un nodo de un árbol binario, por lo que se asume que el nodo desde el que se inicia la llamada no es nulo.
+
+El árbol debe estar bien formado: Se asume que el árbol binario no tiene ciclos y cada nodo tiene a lo sumo dos hijos (hijoIzq y hijoDer), cumpliendo con la estructura de un árbol binario.
+
+El nivel objetivo debe ser un valor no negativo: El parámetro nivelObjetivo debe ser mayor o igual a 0, ya que los niveles en un árbol binario se cuentan a partir de 0 (la raíz).
+
+El nivel actual debe ser menor o igual que el nivel objetivo: Inicialmente, cuando se llama al método, el parámetro nivelActual debe ser 0 o un valor menor que nivelObjetivo para que el método tenga sentido y pueda llegar al nivel deseado.
+
+Los nodos del árbol deben tener referencias válidas a sus hijos: Si un nodo tiene un hijo, las referencias hijoIzq y hijoDer deben apuntar a instancias válidas de nodos o ser nulas si no hay hijos en esas posiciones.
+```
+Postcondiciones
+```
+El resultado es un entero no negativo: El método siempre retorna un valor entero mayor o igual a 0, que representa la cantidad de nodos en el nivel especificado (nivelObjetivo).
+
+El resultado refleja correctamente el número de nodos en el nivel objetivo: Si el nivel objetivo es válido y existe en el árbol, el valor retornado es la cantidad exacta de nodos en ese nivel. Si el nivel objetivo no existe en el árbol (por ejemplo, es mayor que la altura del árbol), el método retorna 0.
+
+El árbol permanece sin modificaciones: La estructura del árbol binario no se altera de ninguna manera como resultado de la ejecución del método. No se cambian ni los valores de los nodos ni sus enlaces.
+
+La ejecución del método no causa efectos secundarios: No se realizan cambios en el estado de otros objetos o variables fuera del método.
+```
+
 - **isItBST()**
 
 Precondiciones
@@ -129,31 +154,6 @@ Impresión de hojas: Para cada hoja del árbol (nodo sin hijos), el método impr
 No modifica el árbol: El método no debe modificar la estructura del árbol ni los datos de los nodos. Solo debe realizar lecturas y llamadas recursivas.
 ```
 
-- **nodesPerLevel()**
-
-Precondiciones
-```
-El nodo actual no debe ser nulo: El método nodesPerLevel se llama en un nodo de un árbol binario, por lo que se asume que el nodo desde el que se inicia la llamada no es nulo.
-
-El árbol debe estar bien formado: Se asume que el árbol binario no tiene ciclos y cada nodo tiene a lo sumo dos hijos (hijoIzq y hijoDer), cumpliendo con la estructura de un árbol binario.
-
-El nivel objetivo debe ser un valor no negativo: El parámetro nivelObjetivo debe ser mayor o igual a 0, ya que los niveles en un árbol binario se cuentan a partir de 0 (la raíz).
-
-El nivel actual debe ser menor o igual que el nivel objetivo: Inicialmente, cuando se llama al método, el parámetro nivelActual debe ser 0 o un valor menor que nivelObjetivo para que el método tenga sentido y pueda llegar al nivel deseado.
-
-Los nodos del árbol deben tener referencias válidas a sus hijos: Si un nodo tiene un hijo, las referencias hijoIzq y hijoDer deben apuntar a instancias válidas de nodos o ser nulas si no hay hijos en esas posiciones.
-```
-Postcondiciones
-```
-El resultado es un entero no negativo: El método siempre retorna un valor entero mayor o igual a 0, que representa la cantidad de nodos en el nivel especificado (nivelObjetivo).
-
-El resultado refleja correctamente el número de nodos en el nivel objetivo: Si el nivel objetivo es válido y existe en el árbol, el valor retornado es la cantidad exacta de nodos en ese nivel. Si el nivel objetivo no existe en el árbol (por ejemplo, es mayor que la altura del árbol), el método retorna 0.
-
-El árbol permanece sin modificaciones: La estructura del árbol binario no se altera de ninguna manera como resultado de la ejecución del método. No se cambian ni los valores de los nodos ni sus enlaces.
-
-La ejecución del método no causa efectos secundarios: No se realizan cambios en el estado de otros objetos o variables fuera del método.
-```
-
 ## Descripción en lenguaje natural de los casos de prueba correspondientes a cada operación
 En todos los tests el árbol armado es el siguiente:
 
@@ -170,6 +170,10 @@ Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo
 - Caso de prueba **testGetParent()**
 
 Se crea el arbol mostrado en la imagen, se espera que el resultado que el metodo retorna sea 10, ya que el nodo que se pasa como parametro es el 14. El test comprueba que el método getParent() correctamente identifica al nodo padre con el valor 10 como la clave inmediata anterior a la clave dada por parametro (14) y compara este resultado con el valor esperado usando assertEquals.
+
+- Caso de prueba **testNodesPerLevel()**
+
+Creamos el arbol binario de la imagen y llamamos al metodo nodesPerLevel() pasandole como primer parametro el valor del nivel que queremos saber cuantos nodos tiene, luego le pasamos 0 para que inicie desde el nivel 0 a buscar. Luego comprobamos que el resultado sea igual al esperado.
 
 - Caso de prueba **testItIsBST()**
 
@@ -198,10 +202,6 @@ Luego, el método llama a isItBST() para verificar si esta estructura es un BST 
 - Caso de prueba **levelAndLeaf()**
 
 No testeamos este metodo ya que no retorna nada (void), simplemente imprime una string con los datos.
-
-- Caso de prueba **testNodesPerLevel()**
-
-Creamos el arbol binario de la imagen y llamamos al metodo nodesPerLevel() pasandole como primer parametro el valor del nivel que queremos saber cuantos nodos tiene, luego le pasamos 0 para que inicie desde el nivel 0 a buscar. Luego comprobamos que el resultado sea igual al esperado.
 
 ## Escritura del algoritmo en seudocódigo formal 
 
@@ -244,6 +244,28 @@ Algoritmo getParent(hijoAbuscar: TElementoAB) -> TElementoAB
     Sino
         retornar nulo
     FinSi
+FinAlgoritmo
+```
+- Seudocódigo **nodesPerLevel**
+```
+Algoritmo nodesPerLevel(nivelObjetivo, nivelActual) Como Entero
+    Si (nivelActual = nivelObjetivo) Entonces
+        Retornar 1
+    FinSi
+    
+    Definimos leftNodes, rightNodes (int)
+    leftNodes <- 0
+    rightNodes <- 0
+
+    Si (hijoIzq <> Nulo) Entonces
+        leftNodes <- Este.hijoIzq.nodesPerLevel(nivelObjetivo, nivelActual + 1)
+    FinSi
+
+    Si (hijoDer <> Nulo) Entonces
+        rightNodes <- Este.hijoDer.nodesPerLevel(nivelObjetivo, nivelActual + 1)
+    FinSi
+
+    Retornar leftNodes + rightNodes
 FinAlgoritmo
 ```
 - Seudocódigo **isItBST**
@@ -292,39 +314,7 @@ Procedimiento levelAndLeaf(level: entero)
     FinSi
 FinProcedimiento
 ```
-- Seudocódigo **nodesPerLevel**
-```
-Algoritmo nodesPerLevel
-    Tipo Nodo
-        Definir clave Como Entero
-        Definir hijoIzq, hijoDer Como Nodo
-    FinTipo
 
-    Funcion nodesPerLevel(nodo Como Nodo, nivelObjetivo Como Entero, nivelActual Como Entero) Como Entero
-        Si nodo Es Nulo Entonces
-            retornar 0
-        FinSi
-
-        Si nivelActual = nivelObjetivo Entonces
-            retornar 1
-        FinSi
-
-        Definir leftNodes, rightNodes Como Entero
-        leftNodes = 0
-        rightNodes = 0
-
-        Si nodo.hijoIzq No Es Nulo Entonces
-            leftNodes = nodesPerLevel(nodo.hijoIzq, nivelObjetivo, nivelActual + 1)
-        FinSi
-
-        Si nodo.hijoDer No Es Nulo Entonces
-            rightNodes = nodesPerLevel(nodo.hijoDer, nivelObjetivo, nivelActual + 1)
-        FinSi
-
-        retornar leftNodes + rightNodes
-    FinFuncion
-FinAlgoritmo
-```
 ## Orden del tiempo de ejecución de los algoritmos
 
 - Orden de **findLargest**
@@ -345,6 +335,14 @@ O(h)
 ```
 El orden de ejecución del método getParent(TElementoAB hijoAbuscar) es O(h), donde h es la altura del árbol, reflejando el peor caso en el que el nodo hijo buscado está en el extremo opuesto del árbol al nodo actual.
 
+- Orden de **nodesPerLevel**
+```
+O(2^h)
+```
+Para un árbol con h niveles, el número máximo de nodos a visitar es 2^h - 1. Por lo tanto, el tiempo de ejecución total es O(2^h), ya que cada nodo se visita una vez.
+
+Sin embargo, este análisis asume que el árbol está completamente lleno, lo cual no siempre es el caso. En la práctica, el número de nodos visitados será menor que 2^h - 1, pero aún así, el tiempo de ejecución será proporcional al número de nodos en el camino desde el nodo raíz hasta el nivel objetivo.
+
 - Orden de **isItBST**
 ```
 O(n)
@@ -356,4 +354,3 @@ El orden de ejecución del método isItBST() es O(n), donde n es el número tota
 O(n)
 ```
 El orden de ejecución del método levelAndLeaf(int level) es O(n), donde n es el número total de nodos en el árbol, reflejando la necesidad de visitar cada nodo una vez para calcular y imprimir su nivel.
-
